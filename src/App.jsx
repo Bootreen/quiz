@@ -1,39 +1,25 @@
 import "./App.css";
-import { useState } from "react";
-import { HOME, QUIZ, ADV, RESULT } from "./data/pages";
-import { quizQuestions } from "./data/questions";
-import { shuffle } from "./utils/shuffle";
-import { PageHome } from "./components/PageHome";
-import { PageQuiz } from "./components/PageQuiz";
-import { PageAdv } from "./components/PageAdv";
-import { PageResult } from "./components/PageResult";
+import { Route } from "wouter";
+import { Home } from "./components/Home";
+import { Quiz } from "./components/Quiz";
+import { Adv } from "./components/Adv";
+import { Result } from "./components/Result";
 
-const App = () => {
-  const [currPage, setCurrPage] = useState(HOME);
-  const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [shuffled] = useState(shuffle(quizQuestions.length));
-
-  return (
-    <>
-      {currPage === HOME && <PageHome navHandler={() => setCurrPage(QUIZ)} />}
-      {currPage === QUIZ && (
-        <PageQuiz
-          navHandler={() => setCurrPage(ADV)}
-          answersHandler={setCorrectAnswers}
-          correctAnswers={correctAnswers}
-          shuffled={shuffled}
-        />
-      )}
-      {currPage === ADV && <PageAdv navHandler={() => setCurrPage(RESULT)} />}
-      {currPage === RESULT && (
-        <PageResult
-          navHandler={() => setCurrPage(HOME)}
-          answersHandler={setCorrectAnswers}
-          correctAnswers={correctAnswers}
-        />
-      )}
-    </>
-  );
-};
+const App = () => (
+  <>
+    <Route path='/'>
+      <Home />
+    </Route>
+    <Route path='/quiz'>
+      <Quiz />
+    </Route>
+    <Route path='/advertizing'>
+      <Adv />
+    </Route>
+    <Route path='/result'>
+      <Result />
+    </Route>
+  </>
+);
 
 export default App;

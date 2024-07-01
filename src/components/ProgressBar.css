@@ -11,7 +11,7 @@
 .progress-bar {
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   place-content: center;
   max-width: 18rem;
   border-radius: 0.8rem;
@@ -19,6 +19,7 @@
 }
 
 .progress-bit {
+  width: auto;
   height: 2rem;
   background-color: transparent;
 }

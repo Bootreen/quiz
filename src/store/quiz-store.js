@@ -10,6 +10,7 @@ export const useQuizStore = create(
     shuffled: shuffle(quizQuestions.length),
     isAnswered: false,
     selectedWrongOptionId: "none",
+    advTimer: 10, // seconds
 
     actions: {
       resetCurrQuestionId: () =>
@@ -37,6 +38,7 @@ export const useQuizStore = create(
           state.selectedWrongOptionId = id;
         }),
       reshuffle: () => set({ shuffled: shuffle(quizQuestions.length) }),
+      setAdvTimer: (value) => set({ advTimer: value }),
     },
   }))
 );

@@ -47,6 +47,14 @@
   text-align: center;
 }
 
+.progress-indicatior.gold {
+  color: Black;
+}
+
+.progress-indicatior.sky {
+  color: CadetBlue;
+}
+
 .progress-bar {
   margin: 0 auto;
   display: grid;
@@ -54,7 +62,14 @@
   place-content: center;
   max-width: 18rem;
   border-radius: 0.8rem;
+}
+
+.progress-bar.gold {
   background-color: AntiqueWhite;
+}
+
+.progress-bar.sky {
+  background-color: White;
 }
 
 .progress-bit {
@@ -63,8 +78,12 @@
   background-color: transparent;
 }
 
-.bit-active {
+.bit-active.gold {
   background-color: BurlyWood;
+}
+
+.bit-active.sky {
+  background-color: LightCyan;
 }
 
 .bit-active:first-child {
@@ -75,6 +94,10 @@
 .bit-last {
   border-top-right-radius: 0.6rem;
   border-bottom-right-radius: 0.6rem;
+}
+
+.turned-off {
+  display: none;
 }
 
 .adv-img-container {
@@ -92,4 +115,5 @@
   flex-direction: row;
   place-content: center;
   column-gap: 0.7rem;
+  margin-top: 1.5rem;
 }

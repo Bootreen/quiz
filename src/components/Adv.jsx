@@ -1,6 +1,14 @@
 import { useLocation } from "wouter";
+import { useEffect } from "react";
+import { useQuizStore, useQuizStoreActions } from "../store/quiz-store";
+import { ProgressBar } from "./ProgressBar";
 
 export const Adv = () => {
+  const { advTimer } = useQuizStore();
+  const { setAdvTimer } = useQuizStoreActions();
+  useEffect(() => {
+    advTimer > 0 && setTimeout(() => setAdvTimer(advTimer - 1), 1000);
+  }, [advTimer]);
   const [, setLocation] = useLocation("./advertizing");
   return (
     <>
@@ -15,14 +23,23 @@ export const Adv = () => {
         future? Join the Taktsoft Campus Talents program and sign up for our
         Bootcamp as a Frontend or Fullstack developer.{" "}
       </p>
-      <h3>Advertising</h3>
+      <ProgressBar
+        current={advTimer}
+        total={10}
+        indicatorTemplate='Advertising: |{current}| seconds left'
+        palette='sky'
+      />
       <form
         className='buttons-container'
         target='_blank'
         action='https://talents.taktsoft.com/'
       >
         <button type='submit'>Learn More</button>
-        <button type='button' onClick={() => setLocation("./result")}>
+        <button
+          type='button'
+          onClick={() => setLocation("./result")}
+          disabled={advTimer > 0}
+        >
           Skip Ad
         </button>
       </form>

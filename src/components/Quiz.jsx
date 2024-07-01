@@ -34,7 +34,12 @@ export const Quiz = () => {
 
   return (
     <>
-      <ProgressBar currQuestion={currQuestionId} />
+      <ProgressBar
+        current={currQuestionId + 1}
+        total={quizQuestions.length}
+        indicatorTemplate='{current}| of |{total}'
+        palette='gold'
+      />
       <div className='question-container'>
         <h3>{question}</h3>
       </div>

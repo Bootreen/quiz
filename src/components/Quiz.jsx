@@ -1,4 +1,3 @@
-import "./Quiz.css";
 import { clsx } from "clsx";
 import { useLocation } from "wouter";
 import { useQuizStore, useQuizStoreActions } from "../store/quiz-store";

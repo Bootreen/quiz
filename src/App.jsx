@@ -1,4 +1,4 @@
-import "./App.css";
+import "./css/styles.css";
 import { Route } from "wouter";
 import { Home } from "./components/Home";
 import { Quiz } from "./components/Quiz";

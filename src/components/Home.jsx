@@ -1,4 +1,3 @@
-import "./Home.css";
 import { useLocation } from "wouter";
 import { useQuizStoreActions } from "../store/quiz-store";
 

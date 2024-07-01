@@ -3,12 +3,13 @@ import { useQuizStoreActions } from "../store/quiz-store";
 
 export const Home = () => {
   const [, setLocation] = useLocation("/");
-  const { reshuffle, resetCurrQuestionId, resetCorrectAnswers } =
+  const { reshuffle, resetCurrQuestionId, resetCorrectAnswers, setAdvTimer } =
     useQuizStoreActions();
   const startQuiz = () => {
     reshuffle();
     resetCurrQuestionId();
     resetCorrectAnswers();
+    setAdvTimer(10);
     setLocation("./quiz");
   };
   return (

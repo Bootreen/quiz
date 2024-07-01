@@ -1,3 +1,4 @@
+import "./Home.css";
 import { useLocation } from "wouter";
 
 export const Home = () => {
@@ -6,7 +7,7 @@ export const Home = () => {
     <>
       <h2>Frontend Quiz</h2>
       <h3>Welcome!</h3>
-      <p>
+      <p className='description'>
         Test your coding knowledge! Click through the questions and select the
         correct answer. You can continue by clicking the Next button. You can
         see your progress in the quiz at the top. At the end you will find out

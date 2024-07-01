@@ -51,7 +51,9 @@ export const Quiz = () => {
   return (
     <>
       <ProgressBar currQuestion={currQuestionId} />
-      <h3>{question}</h3>
+      <div className='question'>
+        <h3>{question}</h3>
+      </div>
       <div className='options-container'>
         {shuffled[currQuestionId].map((shuffledId, realId) => (
           <button

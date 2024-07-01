@@ -1,3 +1,13 @@
+.question {
+  height: 6rem;
+  display: flex;
+  place-items: center;
+}
+
+.question h3 {
+  width: 100%;
+}
+
 .options-container {
   display: flex;
   flex-direction: column;

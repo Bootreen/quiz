@@ -1,40 +1,40 @@
-import "./PageQuiz.css";
-import { useState } from "react";
+import "./Quiz.css";
+import { ADV } from "../data/pages";
+import { useQuizStore, useQuizStoreActions } from "../store/quiz-store";
 import { clsx } from "clsx";
 import { quizQuestions } from "../data/questions";
 import { ProgressBar } from "./ProgressBar";
 
-export const PageQuiz = ({
-  navHandler,
-  answersHandler,
-  correctAnswers,
-  shuffled,
-}) => {
-  const [currQuestionId, setCurrQuestionId] = useState(0);
+export const Quiz = () => {
+  const {
+    setCurrPage,
+    incCurrQuestionId,
+    incCorrectAnswers,
+    toggleIsAnswered,
+    setSelectedWrongOptionId,
+  } = useQuizStoreActions();
+  const shuffled = useQuizStore((state) => state.shuffled);
+  const currQuestionId = useQuizStore((state) => state.currQuestionId);
   const { question, options } = quizQuestions[currQuestionId];
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [selectedWrongOptionId, setSelectedWrongOptionId] = useState("none");
+  const isAnswered = useQuizStore((state) => state.isAnswered);
+  const selectedWrongOptionId = useQuizStore(
+    (state) => state.selectedWrongOptionId
+  );
 
   const isCorrect = (shuffledId) => (shuffledId === 0 ? true : false);
   const isLastQuestion = currQuestionId === quizQuestions.length - 1;
 
   const switchQuestion = () => {
-    setIsAnswered(false);
+    toggleIsAnswered();
     setSelectedWrongOptionId("none");
-    if (isLastQuestion) {
-      navHandler();
-    } else {
-      setCurrQuestionId(currQuestionId + 1);
-    }
+    if (isLastQuestion) setCurrPage(ADV);
+    else incCurrQuestionId();
   };
 
   const processAnswer = (shuffledId, realId) => {
-    setIsAnswered(true);
-    if (isCorrect(shuffledId)) {
-      answersHandler(correctAnswers + 1);
-    } else {
-      setSelectedWrongOptionId(realId);
-    }
+    toggleIsAnswered();
+    if (isCorrect(shuffledId)) incCorrectAnswers();
+    else setSelectedWrongOptionId(realId);
   };
 
   return (

@@ -14,8 +14,8 @@
   grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
   place-content: center;
   max-width: 18rem;
-  border: 1px solid LightSeaGreen;
   border-radius: 0.8rem;
+  background-color: AntiqueWhite;
 }
 
 .progress-bit {
@@ -24,7 +24,7 @@
 }
 
 .bit-active {
-  background-color: MediumAquamarine;
+  background-color: BurlyWood;
 }
 
 .bit-active:first-child {

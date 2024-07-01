@@ -4,21 +4,12 @@ import { useLocation } from "wouter";
 import { useQuizStore, useQuizStoreActions } from "../store/quiz-store";
 import { quizQuestions } from "../data/questions";
 import { ProgressBar } from "./ProgressBar";
-import { useEffect } from "react";
 
 export const Quiz = () => {
-  useEffect(() => {
-    resetCorrectAnswers();
-    reshuffle();
-  }, []);
-
   const [, setLocation] = useLocation("./quiz");
   const {
-    reshuffle,
     incCurrQuestionId,
-    resetCurrQuestionId,
     incCorrectAnswers,
-    resetCorrectAnswers,
     toggleIsAnswered,
     setSelectedWrongOptionId,
   } = useQuizStoreActions();
@@ -36,10 +27,8 @@ export const Quiz = () => {
   const switchQuestion = () => {
     toggleIsAnswered();
     setSelectedWrongOptionId("none");
-    if (isLastQuestion) {
-      resetCurrQuestionId();
-      setLocation("./advertizing");
-    } else incCurrQuestionId();
+    if (isLastQuestion) setLocation("./advertizing");
+    else incCurrQuestionId();
   };
 
   const processAnswer = (shuffledId, realId) => {
@@ -51,7 +40,9 @@ export const Quiz = () => {
   return (
     <>
       <ProgressBar currQuestion={currQuestionId} />
-      <h3>{question}</h3>
+      <div className='question'>
+        <h3>{question}</h3>
+      </div>
       <div className='options-container'>
         {shuffled[currQuestionId].map((shuffledId, realId) => (
           <button

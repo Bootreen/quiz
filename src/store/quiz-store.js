@@ -1,4 +1,3 @@
-import { HOME } from "../data/pages";
 import { quizQuestions } from "../data/questions";
 import { shuffle } from "../utils/shuffle";
 import { create } from "zustand";
@@ -6,7 +5,6 @@ import { immer } from "zustand/middleware/immer";
 
 export const useQuizStore = create(
   immer((set) => ({
-    currPage: HOME,
     currQuestionId: 0,
     correctAnswers: 0,
     shuffled: shuffle(quizQuestions.length),
@@ -14,10 +12,6 @@ export const useQuizStore = create(
     selectedWrongOptionId: "none",
 
     actions: {
-      setCurrPage: (page) =>
-        set((state) => {
-          state.currPage = page;
-        }),
       resetCurrQuestionId: () =>
         set((state) => {
           state.currQuestionId = 0;

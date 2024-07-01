@@ -1,8 +1,7 @@
-import { QUIZ } from "../data/pages";
-import { useQuizStoreActions } from "../store/quiz-store";
+import { useLocation } from "wouter";
 
 export const Home = () => {
-  const { setCurrPage } = useQuizStoreActions();
+  const [, setLocation] = useLocation("/");
   return (
     <>
       <h2>ROH Quiz</h2>
@@ -14,7 +13,7 @@ export const Home = () => {
         whether you are already a coding pro or whether you still have a lot to
         learn... Have fun!
       </p>
-      <button onClick={() => setCurrPage(QUIZ)}>Start Quiz</button>
+      <button onClick={() => setLocation("./quiz")}>Start Quiz</button>
     </>
   );
 };

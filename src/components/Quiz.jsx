@@ -1,13 +1,13 @@
 import "./Quiz.css";
-import { ADV } from "../data/pages";
-import { useQuizStore, useQuizStoreActions } from "../store/quiz-store";
 import { clsx } from "clsx";
+import { useLocation } from "wouter";
+import { useQuizStore, useQuizStoreActions } from "../store/quiz-store";
 import { quizQuestions } from "../data/questions";
 import { ProgressBar } from "./ProgressBar";
 
 export const Quiz = () => {
+  const [, setLocation] = useLocation("./quiz");
   const {
-    setCurrPage,
     incCurrQuestionId,
     resetCurrQuestionId,
     incCorrectAnswers,
@@ -30,7 +30,7 @@ export const Quiz = () => {
     setSelectedWrongOptionId("none");
     if (isLastQuestion) {
       resetCurrQuestionId();
-      setCurrPage(ADV);
+      setLocation("./advertizing");
     } else incCurrQuestionId();
   };
 

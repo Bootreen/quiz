@@ -1,13 +1,14 @@
-import { HOME } from "../data/pages";
+import { useLocation } from "wouter";
 import { useQuizStore, useQuizStoreActions } from "../store/quiz-store";
 
 export const Result = () => {
+  const [, setLocation] = useLocation("./result");
   const correctAnswers = useQuizStore((state) => state.correctAnswers);
-  const { setCurrPage, resetCorrectAnswers, reshuffle } = useQuizStoreActions();
+  const { resetCorrectAnswers, reshuffle } = useQuizStoreActions();
   const restart = () => {
     resetCorrectAnswers();
     reshuffle();
-    setCurrPage(HOME);
+    setLocation("/");
   };
 
   return (

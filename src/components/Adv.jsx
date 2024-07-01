@@ -1,8 +1,7 @@
-import { RESULT } from "../data/pages";
-import { useQuizStoreActions } from "../store/quiz-store";
+import { useLocation } from "wouter";
 
 export const Adv = () => {
-  const { setCurrPage } = useQuizStoreActions();
+  const [, setLocation] = useLocation("./advertizing");
   return (
     <>
       <a
@@ -12,7 +11,7 @@ export const Adv = () => {
         <img src='/TaktsoftLogo.jpg' />
       </a>
       <h3>Advertising</h3>
-      <button onClick={() => setCurrPage(RESULT)}>Skip Ad</button>
+      <button onClick={() => setLocation("./result")}>Skip Ad</button>
     </>
   );
 };

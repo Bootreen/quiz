@@ -1,10 +1,10 @@
-.question {
+.question-container {
   height: 6rem;
   display: flex;
   place-items: center;
 }
 
-.question h3 {
+.question-container h3 {
   width: 100%;
 }
 

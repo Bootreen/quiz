@@ -13,13 +13,9 @@ export const Quiz = () => {
     toggleIsAnswered,
     setSelectedWrongOptionId,
   } = useQuizStoreActions();
-  const shuffled = useQuizStore((state) => state.shuffled);
-  const currQuestionId = useQuizStore((state) => state.currQuestionId);
+  const { shuffled, currQuestionId, isAnswered, selectedWrongOptionId } =
+    useQuizStore();
   const { question, options } = quizQuestions[currQuestionId];
-  const isAnswered = useQuizStore((state) => state.isAnswered);
-  const selectedWrongOptionId = useQuizStore(
-    (state) => state.selectedWrongOptionId
-  );
 
   const isCorrect = (shuffledId) => (shuffledId === 0 ? true : false);
   const isLastQuestion = currQuestionId === quizQuestions.length - 1;
@@ -40,7 +36,7 @@ export const Quiz = () => {
   return (
     <>
       <ProgressBar currQuestion={currQuestionId} />
-      <div className='question'>
+      <div className='question-container'>
         <h3>{question}</h3>
       </div>
       <div className='options-container'>

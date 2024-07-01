@@ -3,7 +3,7 @@ import { useQuizStore } from "../store/quiz-store";
 
 export const Result = () => {
   const [, setLocation] = useLocation("./result");
-  const correctAnswers = useQuizStore((state) => state.correctAnswers);
+  const { correctAnswers } = useQuizStore();
   return (
     <>
       <h2>Frontend Quiz</h2>

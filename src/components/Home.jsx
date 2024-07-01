@@ -4,7 +4,7 @@ export const Home = () => {
   const [, setLocation] = useLocation("/");
   return (
     <>
-      <h2>ROH Quiz</h2>
+      <h2>Frontend Quiz</h2>
       <h3>Welcome!</h3>
       <p>
         Test your coding knowledge! Click through the questions and select the

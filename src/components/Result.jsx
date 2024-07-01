@@ -13,7 +13,7 @@ export const Result = () => {
 
   return (
     <>
-      <h2>ROH Quiz</h2>
+      <h2>Frontend Quiz</h2>
       <h3>Your result</h3>
       <p>Du hast {correctAnswers} Fragen richtig beantwortet.</p>
       <button onClick={restart}>Homepage</button>

@@ -1,10 +1,11 @@
 .progress-indicatior {
-  margin-top: 0.25rem;
   font-size: 1.1rem;
   font-weight: 800;
+  /* overlap with progress bar */
   position: absolute;
-  right: 0%;
-  left: 0%;
+  width: 18rem;
+  margin-top: 0.25rem;
+  text-align: center;
 }
 
 .progress-bar {
@@ -12,7 +13,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
   place-content: center;
-  max-width: 25rem;
+  max-width: 18rem;
   border: 1px solid LightSeaGreen;
   border-radius: 0.8rem;
 }

@@ -4,13 +4,21 @@ import { useLocation } from "wouter";
 import { useQuizStore, useQuizStoreActions } from "../store/quiz-store";
 import { quizQuestions } from "../data/questions";
 import { ProgressBar } from "./ProgressBar";
+import { useEffect } from "react";
 
 export const Quiz = () => {
+  useEffect(() => {
+    resetCorrectAnswers();
+    reshuffle();
+  }, []);
+
   const [, setLocation] = useLocation("./quiz");
   const {
+    reshuffle,
     incCurrQuestionId,
     resetCurrQuestionId,
     incCorrectAnswers,
+    resetCorrectAnswers,
     toggleIsAnswered,
     setSelectedWrongOptionId,
   } = useQuizStoreActions();

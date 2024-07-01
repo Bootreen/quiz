@@ -9,6 +9,7 @@ export const Quiz = () => {
   const {
     setCurrPage,
     incCurrQuestionId,
+    resetCurrQuestionId,
     incCorrectAnswers,
     toggleIsAnswered,
     setSelectedWrongOptionId,
@@ -27,8 +28,10 @@ export const Quiz = () => {
   const switchQuestion = () => {
     toggleIsAnswered();
     setSelectedWrongOptionId("none");
-    if (isLastQuestion) setCurrPage(ADV);
-    else incCurrQuestionId();
+    if (isLastQuestion) {
+      resetCurrQuestionId();
+      setCurrPage(ADV);
+    } else incCurrQuestionId();
   };
 
   const processAnswer = (shuffledId, realId) => {

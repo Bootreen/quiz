@@ -1,8 +1,17 @@
 import "./Home.css";
 import { useLocation } from "wouter";
+import { useQuizStoreActions } from "../store/quiz-store";
 
 export const Home = () => {
   const [, setLocation] = useLocation("/");
+  const { reshuffle, resetCurrQuestionId, resetCorrectAnswers } =
+    useQuizStoreActions();
+  const startQuiz = () => {
+    reshuffle();
+    resetCurrQuestionId();
+    resetCorrectAnswers();
+    setLocation("./quiz");
+  };
   return (
     <>
       <h2>Frontend Quiz</h2>
@@ -14,7 +23,7 @@ export const Home = () => {
         whether you are already a coding pro or whether you still have a lot to
         learn... Have fun!
       </p>
-      <button onClick={() => setLocation("./quiz")}>Start Quiz</button>
+      <button onClick={startQuiz}>Start Quiz</button>
     </>
   );
 };

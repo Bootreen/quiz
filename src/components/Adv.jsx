@@ -12,7 +12,10 @@ export const Adv = () => {
   const [, setLocation] = useLocation("./advertizing");
   return (
     <>
-      <a href='https://talents.taktsoft.com/' target='_blank'>
+      <a
+        href='https://talents.taktsoft.com/bewerbung?bootcamp=0'
+        target='_blank'
+      >
         <div className='adv-img-container'>
           <img className='adv-img' src='/tct-logo.png' />
         </div>
@@ -32,9 +35,9 @@ export const Adv = () => {
       <form
         className='buttons-container'
         target='_blank'
-        action='https://talents.taktsoft.com/'
+        action='https://talents.taktsoft.com/bewerbung?bootcamp=0'
       >
-        <button type='submit'>Learn More</button>
+        <button type='submit'>Register</button>
         <button
           type='button'
           onClick={() => setLocation("./result")}

@@ -37,7 +37,7 @@ export const Adv = () => {
         target='_blank'
         action='https://talents.taktsoft.com/bewerbung?bootcamp=0'
       >
-        <button type='submit'>Register</button>
+        <button type='submit'>Learn more</button>
         <button
           type='button'
           onClick={() => setLocation("./result")}

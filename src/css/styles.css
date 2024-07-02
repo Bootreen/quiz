@@ -10,6 +10,11 @@
 
 .description {
   text-align: left;
+  text-indent: 2rem;
+}
+
+li {
+  text-align: left;
 }
 
 .question-container {

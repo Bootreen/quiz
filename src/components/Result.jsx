@@ -9,6 +9,7 @@ export const Result = () => {
     "HTML Newbie! 🌱\nKeep learning!",
     "HTML Newbie! 🌱\nKeep learning!",
     "CSS Apprentice! 🎨\nPractice time!",
+    "CSS Apprentice! 🎨\nPractice time!",
     "JS Juggler! 🤹\nKeep going!",
     "Code Rockstar! 🎸\nAlmost flawless!",
     "Frontend Wizard! 🧙\nYou nailed it!",
@@ -26,7 +27,10 @@ export const Result = () => {
   return (
     <>
       <h2>Quiz Result</h2>
-      <p className='result'>You have {correctAnswers} correct answers.</p>
+      <p className='result'>
+        You have {correctAnswers} correct answer
+        {correctAnswers === 1 ? "" : "s"}.
+      </p>
       {results[correctAnswers].split("\n").map((element, id) => (
         <p key={id} className='result'>
           {element}

@@ -123,7 +123,8 @@ li {
   margin-top: 1.5rem;
 }
 
-.buttons-container button {
+/* Prevent strange button text color on some mobiles */
+.buttons-container button:enabled {
   color: black;
 }
 

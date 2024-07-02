@@ -123,6 +123,10 @@ li {
   margin-top: 1.5rem;
 }
 
+.buttons-container button {
+  color: black;
+}
+
 .result-gif {
   width: 16rem;
   height: auto;

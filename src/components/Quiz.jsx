@@ -1,4 +1,3 @@
-import "./Quiz.css";
 import { clsx } from "clsx";
 import { useLocation } from "wouter";
 import { useQuizStore, useQuizStoreActions } from "../store/quiz-store";
@@ -35,7 +34,12 @@ export const Quiz = () => {
 
   return (
     <>
-      <ProgressBar currQuestion={currQuestionId} />
+      <ProgressBar
+        current={currQuestionId + 1}
+        total={quizQuestions.length}
+        indicatorTemplate='{current}| of |{total}'
+        palette='gold'
+      />
       <div className='question-container'>
         <h3>{question}</h3>
       </div>

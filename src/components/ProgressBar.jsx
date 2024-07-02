@@ -1,21 +1,34 @@
-import "./ProgressBar.css";
-import { quizQuestions } from "../data/questions";
 import { clsx } from "clsx";
 
-export const ProgressBar = ({ currQuestion }) => {
+export const ProgressBar = ({ current, total, indicatorTemplate, palette }) => {
   return (
     <>
-      <div className='progress-indicatior'>
-        {currQuestion + 1} of {quizQuestions.length}
+      <div
+        className={clsx(
+          "progress-indicatior",
+          palette,
+          current === 0 && "turned-off"
+        )}
+      >
+        {indicatorTemplate
+          .split("|")
+          .map((element) =>
+            element === "{current}"
+              ? current
+              : element === "{total}"
+              ? total
+              : element
+          )}
       </div>
-      <div className='progress-bar'>
-        {new Array(quizQuestions.length).fill(0).map((_, id) => (
+      <div className={"progress-bar " + palette}>
+        {new Array(total).fill(0).map((_, id) => (
           <div
             key={id}
             className={clsx(
               "progress-bit",
-              id <= currQuestion && "bit-active",
-              id === currQuestion && "bit-last"
+              palette,
+              id <= current - 1 && "bit-active",
+              id === current - 1 && "bit-last"
             )}
           ></div>
         ))}

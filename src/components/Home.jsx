@@ -1,15 +1,15 @@
-import "./Home.css";
 import { useLocation } from "wouter";
 import { useQuizStoreActions } from "../store/quiz-store";
 
 export const Home = () => {
   const [, setLocation] = useLocation("/");
-  const { reshuffle, resetCurrQuestionId, resetCorrectAnswers } =
+  const { reshuffle, resetCurrQuestionId, resetCorrectAnswers, setAdvTimer } =
     useQuizStoreActions();
   const startQuiz = () => {
     reshuffle();
     resetCurrQuestionId();
     resetCorrectAnswers();
+    setAdvTimer(10);
     setLocation("./quiz");
   };
   return (
@@ -17,12 +17,18 @@ export const Home = () => {
       <h2>Frontend Quiz</h2>
       <h3>Welcome!</h3>
       <p className='description'>
-        Test your coding knowledge! Click through the questions and select the
-        correct answer. You can continue by clicking the Next button. You can
-        see your progress in the quiz at the top. At the end you will find out
-        whether you are already a coding pro or whether you still have a lot to
-        learn... Have fun!
+        Are you ready to test your coding skills? Dive into our engaging quiz,
+        designed to challenge and entertain you with questions on HTML, CSS, and
+        JavaScript.
       </p>
+      <h3>Quiz rules:</h3>
+      <ul>
+        <li>7 Questions total</li>
+        <li>Each has 4 answer options</li>
+        <li>Only one option is correct</li>
+        <li>No skipping allowed</li>
+        <li>No time restrictions</li>
+      </ul>
       <button onClick={startQuiz}>Start Quiz</button>
     </>
   );
